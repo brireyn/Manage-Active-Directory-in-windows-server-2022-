@@ -87,6 +87,68 @@ Connect to DNS server addresses manually and set as Preferred DNS server by clic
 ![4d](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/6ae952fb-1d2b-45d5-82c7-5aacac69c9c4)
 Then in Networking tab select Internet Protocol Version 4 (TCP/IPv4) check box. 
 ![4e](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/8ba4dd38-c24e-48e4-b98c-db65c879aea7)
-
+To assign a static IPv4 address, Use the following IP address box should be filled out. DHCP is normally used for automatic IP assignment but static IP addresses are more secure. 
 ![4h](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/d1b619a9-55d2-4b49-ad3b-ce810760a83d)
+
+On the Windows Settings window, type Advanced System Settings in the search box at the top, and select View advanced system settings.
+
+Choose the Computer Name tab in the System Properties window.
+![4j](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/576b498e-09c1-4ecd-8bd5-f1cc3c624f8e)
+
+Click the Change... button to change the domain. 
+![4k](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/3daf28c7-9570-48b0-b000-bb3ef5689f5a)
+![4m](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/4570fdcf-0a69-4d49-8149-fab6e1d345b8)
+![4n](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/43b494d4-d277-438e-bead-5e44bb7f49ec)
+
+ Domain Name is updated and settings are applied. 
+![5a](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/cccb6365-91f2-4ee1-9f1c-27ac3d6ea45b)
+
+Changes take effect after you restart the computer when changing the computer domain. 
+Back in the Active Directory Domain Controller VM - the PSWin1 computer is shown added to the domain under the file share. 
+![5b](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/63dbd6c0-d302-4579-8302-0ad1430d6d7b)
+
+Step 5: Create a new Group Policy Object in Active Directory and link it to an Organizational Unit. 
+In the Domain Controller console, go to Windows Administrative tools and then Group Policy management. 
+
+![5 c](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/5e3c0726-266e-40fc-81b2-7028ed0109e0)
+
+In the left-hand pane, expand the item Forest: globomantics.co, then Domains, then globomantics.co.
+![5d](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/875263e2-c1e9-4c8e-8641-42f33b4e98c2)
+Under Group Policy Objects - create a new GPO and Name the Group Policy Object: User Settings.
+![5e](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/758540f5-d04f-4640-88c0-6f9c5d7d9175)
+
+![5f](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/dc18aa68-daec-4f71-a533-b078709a7def)
+In the right-hand pane, right-click User Settings and choose Edit. This will start the Group Policy Management Editor.
+
+![5g](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/9eae28c1-edb5-49f0-878b-92ed5bafff08)
+
+In the right-hand pane, double-click Remove "Make Available Offline" command.
+In the settings window for Remove "Make Available Offline" command, choose the Enabled option and click OK. 
+![5h](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/01647f48-584c-4956-b414-730e9c2e0c3b)
+
+Ensure "Enable" option is checked. 
+![5j](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/016cdd4a-d85f-4919-bd76-c67476e9ffa8)
+
+Verify the State for Remove “Make Available Offline” command is Enabled 
+![5k](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/0231ca92-1138-42d5-8a17-5fcb3df6af70)
+
+In the Group Policy Management window, right-click Globoticket and choose Link an Existing GPO....
+
+![5m](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/59c52466-81a6-4cd6-8e04-48938a5bd3f2)
+
+In the Select GPO window, choose User Settings and click OK.
+![5n](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/3ad784f5-49b7-4bf8-8dcf-69ae038df02b)
+
+Click Globoticket in the left-hand pane, and verify that User Settings is listed in the right-hand pane.
+![5o](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/c8ef4a31-9001-4e70-88d9-789e334350c1)
+
+
+<h3>To Remove a Windows desktop from AD </h3>
+Inside of Active Directory Administrative Center console go to the domain controller and select the computer or workstation to delete
+
+![5p](https://github.com/brireyn/Manage-Active-Directory-in-windows-server-2022-/assets/96150916/e0443937-a4e3-4e9b-bfe6-6d52879f9fc9)
+
+Delete a computer from the domain through AD Administrative Center - then click delete to remove.
+
+
 
