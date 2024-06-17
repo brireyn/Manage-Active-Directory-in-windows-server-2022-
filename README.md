@@ -4,8 +4,8 @@ Create users, groups, and OUs (Organizational Units) in Active Directory Server 
 <h1>Managing Active Directory in Windows Server 2022 </h1>
 
 <h2>Description</h2>
-In this lab, new OUs, groups, and users are created in the Globomantics domain controller. 
-The group is then assigned to local file share to grant permissions for users.
+In this academic lab, new OUs, groups, and users are created in the previously created Globomantics domain controller. 
+The group is then assigned to local file share to grant permissions for users. The computer is then removed from the domain. 
 
 <h2>Lab walk-through:</h2>
 
